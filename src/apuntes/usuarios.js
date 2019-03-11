@@ -1,0 +1,19 @@
+export default{
+  usuarios:[
+    {
+      nombre:'Tatiana',
+    },
+    {
+      nombre:'Diego',
+    },
+    {
+      nombre:'Miguel',
+    },
+    {
+      nombre:'Raúl',
+    },
+    {
+      nombre:'Diana',
+    },
+  ]
+}
