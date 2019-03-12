@@ -3,6 +3,16 @@
   align-content:  center;
   background-color: silver;
   height: 500px;
-  width: 500px;
+  width: 400px;
   justify-content: center;
+}
+.navegacion{
+  background-color: silver;
+  padding: 5px;
+}
+.alumnos1{
+  width: 200px;
+}
+.alumnos{
+
 }

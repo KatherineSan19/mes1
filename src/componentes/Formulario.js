@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import ReactDom from 'react-dom';
 import {Form, Select, InputNumber, Switch, Row, Col} from 'antd';
 const { Option } = Select;

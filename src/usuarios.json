@@ -1,0 +1,24 @@
+{
+  "usuarios":[
+    {
+      "nombre":"Tatiana",
+      "semestre":"5"
+    },
+    {
+      "nombre":"Diego",
+      "semestre":"6"
+    },
+    {
+      "nombre":"Miguel",
+      "semestre":"1"
+    },
+    {
+      "nombre":"Raúl",
+      "semestre":"3"
+    },
+    {
+      "nombre":"Diana",
+      "semestre":"2"
+    }
+  ]
+}
