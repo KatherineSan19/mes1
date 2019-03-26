@@ -1,18 +1,56 @@
+.principal{
+  padding-left: 1%;
+  padding-top: 4%;
+}
 .form{
-  padding: 5px;
+  float: left;
+  left: 1%;
+  padding: 1%;
+  align-items: center;
   align-content:  center;
-  background-color: silver;
-  height: 500px;
-  width: 400px;
+  width: 20%;
   justify-content: center;
 }
+.form label{
+  font-weight: 600;
+}
+.form button{
+  color: black;
+  background-color: #ED4264;
+  position: relative;
+  left: 29.5%;
+}
 .navegacion{
-  background-color: silver;
-  padding: 5px;
+  position:absolute;
+  width: 100%;
+  background-color: #CB4060;
+  border-bottom-style:outset;
+  border-color: #ED4264;
+  padding: 0.5%;
+  font-weight: 500;
+  color: black;
+  font-size: 125%;
+}
+
+.span1{
+  float: right;
+  padding-left: 1%;
+  padding-right: 1%;
+  color: black;
+  border-style:outset;
+  border-color: #ED4264;
+}
+.tarjetas{
+  padding-top: 3%;
 }
 .alumnos1{
-  width: 200px;
+  width: 75%;
+  height: 180px;
 }
 .alumnos{
-
+  width: 75%;
+  float: right;
+}
+button{
+  background-color: #0BC1AD;
 }

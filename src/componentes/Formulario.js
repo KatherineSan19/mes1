@@ -1,84 +1,81 @@
-import React, { Component } from 'react';
-import ReactDom from 'react-dom';
-import {Form, Select, InputNumber, Switch, Row, Col} from 'antd';
-const { Option } = Select;
+import React from 'react';
+
+import {Form, Input, Button} from 'antd';
 
 
 class Formulario extends React.Component{
-  handleSubmit = (e) => {
-      e.preventDefault();
-      this.props.form.validateFields((err, values) => {
-        if (!err) {
-          console.log('Received values of form: ', values);
-        }
-      });
-    }
-
-    normFile = (e) => {
-    console.log('Upload event:', e);
-    if (Array.isArray(e)) {
-      return e;
-    }
-    return e && e.fileList;
+  constructor(){
+    super();
+    this.state={
+      nombre:'',
+      semestre:'',
+      carrera:''
+    };
+    this.handleInput=this.handleInput.bind(this);
+    this.handleSubmit=this.handleSubmit.bind(this);
   }
 
+handleInput(e){
+  const{value,name}=e.target;
+  this.setState({
+    [name]:value
+  })
+}
+
+handleSubmit(e){
+  e.preventDefault();
+  this.props.form.validateFields((err, values) => {
+      if (!err) {
+
+        this.props.onAddUsuario(values);
+      }
+    });
+
+}
   render(){
     const { getFieldDecorator } = this.props.form;
-    const formItemLayout = {
-      labelCol: { span: 6 },
-      wrapperCol: { span: 14 },
-    };
 
     return(
       <div className="form">
-      <Form {...formItemLayout} onSubmit={this.handleSubmit}>
-      <Form.Item
-          label="Usuario"
-          hasFeedback
-        >
-        {getFieldDecorator('select', {
-          rules: [
-            { required: true, message: 'Porfavor seleccione su nombre!', type: 'array' },
-          ],
-        })(
-            <Select placeholder="Porfavor seleccione su nombre">
-            <Option value="tatiana">Tatiana</Option>
-            <Option value="diego">Diego</Option>
-            <Option value="karla">Karla</Option>
-            <Option value="alejandro">Alejandro</Option>
-            </Select>
-          )}
-        </Form.Item>
-        <Form.Item
-          label="Materias[multiple]"
-        >
-          {getFieldDecorator('select-multiple', {
-                    rules: [
-                      { required: true, message: 'Porfavor seleciones sus materias!', type: 'array' },
-                    ],
-                  })(
-            <Select mode="multiple" placeholder="Porfavor selecciones sus materias">
-              <Option value="calculo">Cálculo</Option>
-              <Option value="redes">Redes</Option>
-              <Option value="baseDatos">Base de Datos</Option>
-            </Select>
-          )}
-        </Form.Item>
-        <Form.Item
-          label="Semestre"
-        >
-          {getFieldDecorator('input-number', { initialValue: 3 })(
-            <InputNumber min={1} max={10} />
-          )}
+      <Form onSubmit={this.handleSubmit}>
+      <Form.Item  label="Nombre">
+        {getFieldDecorator(`nombre`, {
+              rules: [{
+                required: true,
+                message: 'Input something!',
+              }],
+            })(
+              <Input placeholder="Ingrese su nombre" type="text"/>
+            )}
 
         </Form.Item>
-        <Form.Item
-          label="Switch"
-        >
-          {getFieldDecorator('switch', { valuePropName: 'checked' })(
-            <Switch />
-          )}
+
+        <Form.Item label="Carrera">
+        {getFieldDecorator(`carrera`, {
+              rules: [{
+                required: true,
+                message: 'Input something!',
+              }],
+            })(
+              <Input placeholder="Ingrese su carrera" type="text"/>
+            )}
         </Form.Item>
+
+        <Form.Item label="Semestre">
+        {getFieldDecorator(`semestre`, {
+              rules: [{
+                required: true,
+                message: 'Input something!',
+              }],
+            })(
+              <Input placeholder="Ingrese su semestre" type="text"/>
+            )}
+        </Form.Item>
+        <Form.Item>
+         <Button htmlType="submit">
+           Agregar
+         </Button>
+       </Form.Item>
       </Form>
       </div>
     );
